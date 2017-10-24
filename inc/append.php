@@ -10,13 +10,14 @@ register_shutdown_function(function(){
 	// I make sure that all execution data, including that of the earlier
 	// registered register_shutdown_function, is collected.
 
-	$xhprof_data	= xhprof_disable();
+	//$xhprof_data	= xhprof_disable();
+	$xhprof_data	= tideways_disable();
 
 	if(function_exists('fastcgi_finish_request'))
 	{
 		fastcgi_finish_request();
 	}
-	
+
 	$config			= require __DIR__ . '/../xhprof/includes/config.inc.php';
 	
 	require_once __DIR__ . '/../xhprof/classes/data.php';
